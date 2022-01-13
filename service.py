@@ -64,6 +64,7 @@ def Search( item ):
         listitem.setArt( { "icon": str(int(round(float(item_data["SubRating"])/2))), "thumb" : item_data["ISO639"] } )
         listitem.setProperty( "sync", ("false", "true")[str(item_data["MatchedBy"]) == "moviehash"] )
         listitem.setProperty( "hearing_imp", ("false", "true")[int(item_data["SubHearingImpaired"]) != 0] )
+        listitem.setProperty( "foreign_parts_only", ("false", "true")[int(item_data["SubForeignPartsOnly"]) != 0] )
         url = "plugin://%s/?action=download&link=%s&ID=%s&filename=%s&format=%s" % (__scriptid__,
                                                                           item_data["ZipDownloadLink"],
                                                                           item_data["IDSubtitleFile"],
